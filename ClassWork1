@@ -13,5 +13,21 @@ void draw(){
   ellipse(mouseX+30,mouseY-30,15,15);
   fill(0,255,255);
   ellipse(mouseX-30,mouseY+30,15,15);
- 
+}
+
+//challenge2
+void setup(){
+  size(800,800);
+  
+}
+
+void draw(){
+  background(255,255,255);
+  stroke(0,0,255);
+  strokeWeight(10);
+  line(0,0,mouseX, mouseY);
+  stroke(255,0,0);
+  line(800,0,mouseX,mouseY);
+  stroke(0,255,0);
+  line(800,800, mouseX, mouseY);
 }

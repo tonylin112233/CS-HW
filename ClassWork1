@@ -1,6 +1,5 @@
 void setup(){
   size(800,800);
-  
 }
 
 void draw(){
@@ -14,11 +13,10 @@ void draw(){
   fill(0,255,255);
   ellipse(mouseX-30,mouseY+30,15,15);
 }
-
+-----------------------------------------------------
 //challenge2
 void setup(){
-  size(800,800);
-  
+  size(800,800); 
 }
 
 void draw(){
@@ -30,4 +28,19 @@ void draw(){
   line(800,0,mouseX,mouseY);
   stroke(0,255,0);
   line(800,800, mouseX, mouseY);
+}
+=========================================
+//challenge3
+void setup(){
+  size(800,800);
+}
+
+void draw(){
+  background(255,255,255);
+  fill(255,0,0);
+  triangle(0,0,mouseX, mouseY, 400,800);
+  fill(0,255,0);
+  triangle(800,0,mouseX, mouseY, 400,800);
+  fill(0,0,255);
+  triangle(0,0,800,0,mouseX,mouseY);
 }

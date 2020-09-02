@@ -18,3 +18,45 @@ void mousePressed(){
 void keyPressed(){
   xpos=xpos-15;
 }
+
+----------------
+//challenge 2
+
+float xpos=0;
+float ypos=0;
+float wd=0;
+float ht=0;
+float xr=0;
+float yr=0;
+float wr=0;
+float hr=0;
+
+void setup(){
+  size (800,800);
+}
+
+void draw(){
+  background(255,255,255);
+  ellipse(xpos+300,ypos+300,wd,ht);
+  ellipse(xpos+300,ypos-300,wd,ht);
+  ellipse(xpos-300,ypos+300,wd,ht);
+  ellipse(xpos-300,ypos-300,wd,ht);
+  rect(xr-325,yr-325,wr,ht);
+  rect(xr-325,yr+275,wr,ht);
+  rect(xr+275,yr-325,wr,ht);
+  rect(xr+275,yr+275,wr,ht);
+}
+
+void mousePressed(){
+  xpos=400;
+  ypos=400;
+  wd=50;
+  ht=50;
+}
+
+void keyPressed(){
+xr=400;
+  yr=400;
+  wr=50;
+  ht=50;
+}

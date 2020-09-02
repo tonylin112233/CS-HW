@@ -1,4 +1,28 @@
-//challenge 1
+//click & press making ball bigger
+
+float w=50;
+float h=50;
+
+void setup(){
+  size (800,800);
+}
+
+void draw(){
+  background(0,0,0);
+  ellipse(400, 400, w, h);
+}
+
+void mousePressed(){
+  w=w+10;
+}
+
+void keyPressed(){
+ h=h+10;
+}
+
+--------------------
+
+//challenge 1-movng position
 
 float xpos=400;
 
@@ -20,7 +44,7 @@ void keyPressed(){
 }
 
 ----------------
-//challenge 2
+//challenge 2- four circles and four squares
 
 float xpos=0;
 float ypos=0;
@@ -60,7 +84,7 @@ xr=400;
   wr=50;
   ht=50;
 }
-
+--------------------------------------
 //challenge 3 NOT FINISHED
   float lx=mouseX;
   float lx2=mouseX;

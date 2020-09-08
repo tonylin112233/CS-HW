@@ -1,0 +1,131 @@
+size(800,800);
+background(10,10,10);
+//spaceship
+fill(10,10,10);
+stroke(72,211,273);
+strokeWeight(5);
+ellipse(400,420,640,270);
+ellipse(400,350,470,210);
+stroke(255,50,50);
+strokeWeight(7);
+//superpower
+stroke(52,255,8);
+strokeWeight(15);
+line(172,757,267,566);
+line(550,558,656,770);
+//man
+fill(193,181,154);
+stroke(193,181,154);
+strokeWeight(7);
+ellipse(400,598,56,56);
+line(400,626,400,712);
+line(400,671,352,650);
+line(400,671,450,645);
+line(400,712,350,738);
+line(400,712,450,741);
+
+//tried int
+int a=83;
+int b=118;
+int c=92;
+int d=132;
+int e=108;
+int f=132;
+int g=91;
+int h=143;
+int i=98;
+int j=159;
+int k=83;
+int l=152;
+int m=69;
+int n=162;
+int o=74;
+int p=145;
+int q=58;
+int r=137;
+int s=77;
+int t=133;
+
+//try beginShape()
+strokeWeight(3);
+stroke(255,255,10);
+fill(255,255,10);
+beginShape();
+vertex(a,b);
+vertex(c,d);
+vertex(e,f);
+vertex(g,h);
+vertex(i,j);
+vertex(k,l);
+vertex(m,n);
+vertex(o,p);
+vertex(q,r);
+vertex(s,t);
+vertex(a,b);
+endShape();
+
+beginShape();
+vertex(a+295,b-56);
+vertex(c+295,d-56);
+vertex(e+295,f-56);
+vertex(g+295,h-56);
+vertex(i+295,j-56);
+vertex(k+295,l-56);
+vertex(m+295,n-56);
+vertex(o+295,p-56);
+vertex(q+295,r-56);
+vertex(s+295,t-56);
+vertex(a+295,b-56);
+endShape();
+
+beginShape();
+vertex(a+44,b+120);
+vertex(c+44,d+120);
+vertex(e+44,f+120);
+vertex(g+44,h+120);
+vertex(i+44,j+120);
+vertex(k+44,l+120);
+vertex(m+44,n+120);
+vertex(o+44,p+120);
+vertex(q+44,r+120);
+vertex(s+44,t+120);
+vertex(a+44,b+120);
+endShape();
+
+beginShape();
+vertex(a+512,b+90);
+vertex(c+512,d+90);
+vertex(e+512,f+90);
+vertex(g+512,h+90);
+vertex(i+512,j+90);
+vertex(k+512,l+90);
+vertex(m+512,n+90);
+vertex(o+512,p+90);
+vertex(q+512,r+90);
+vertex(s+512,t+90);
+vertex(a+512,b+90);
+endShape();
+
+beginShape();
+vertex(a+679,b-46);
+vertex(c+679,d-46);
+vertex(e+679,f-46);
+vertex(g+679,h-46);
+vertex(i+679,j-46);
+vertex(k+679,l-46);
+vertex(m+679,n-46);
+vertex(o+679,p-46);
+vertex(q+679,r-46);
+vertex(s+679,t-46);
+vertex(a+679,b-46);
+endShape();
+
+//eyes
+fill(0,0,0);
+stroke(0,0,0);
+ellipse(390,590,10,10);
+ellipse(410,590,10,10);
+
+//mouse
+stroke(193,181,154);
+ellipse(400,610,35,25);

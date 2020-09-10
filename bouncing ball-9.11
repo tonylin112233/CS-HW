@@ -1,0 +1,27 @@
+float xpos=width/2;
+float ypos=height/2;
+ float Ychange=random(0.5,1.5);
+ float Xchange=random(0.5,1.5);
+float speed=10;
+float direction=1;
+float ydir=1;
+void setup(){
+  size(800,800);
+}
+
+void draw(){
+ 
+  background(255,255,255);
+  fill(0,0,0);
+    ellipse(xpos,ypos,50,50);
+  xpos=xpos+speed*Ychange*direction;
+  ypos=ypos+speed*Xchange*ydir;
+  if(xpos<26||xpos>width-26){
+    direction=direction*(-1);
+    Ychange=random(0.5,1.5);
+  }else if(ypos<26||ypos>width-26){
+  ydir=ydir*(-1);
+    Xchange=random(0.5,1.5);}else{
+      direction=direction;
+      ydir=ydir;}
+}

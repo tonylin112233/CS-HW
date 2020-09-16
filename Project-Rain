@@ -1,0 +1,44 @@
+float eX=random(10,790);
+float eY=0;
+float red=126;
+float blue=126;
+float bar;
+float speed=7;
+int sco=0;
+void setup(){
+  size(800,800);
+}
+
+void draw(){
+  background(red,0,blue);
+  fill(0,252,12);
+  ellipse(eX,eY,10,10);
+  fill(255,255,0);
+  textSize(32);
+  text(sco,600,60);
+  bar=mouseX;
+    fill(0,0,0);
+  rect(bar-20,780,40,5);
+  eY=eY+speed;
+  if( (bar-20<eX )&( eX<bar+20 )&( eY>770)){
+    eX=random(10,790);
+    eY=0;
+    red=red-12;
+    blue=blue+12;
+    speed=speed+1;
+    sco=sco+1;
+     }else if(eY>800){
+       eX=random(10,790);
+      eY=0;
+      blue=blue-12;
+      red=red+12;
+      speed=speed-1;
+      sco=sco-1;
+  }
+if(sco>=15){
+  sco=10000;
+  fill(255,0,0);
+  textSize(150);
+  text("VICTORY",75,400);
+  
+}}

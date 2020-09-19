@@ -1,0 +1,81 @@
+float p1y=250;
+float p2y=250;
+boolean q,a,p,l;
+float xdir=1;
+float ydir=1;
+float speed=3;
+float xpos=width/2;
+float ypos=height/2;
+float xchange=random(0.7,1.3);
+float ychange=random(0.7,1.3);
+int p1=0;
+int p2=0;
+
+void setup (){
+  size(500,500);
+}
+
+void draw () {
+  background(255,255,255);
+  fill(random(0,255),random(0,255),random(0,255));
+  rect(10,p1y,15,50);
+  rect(475,p2y,15,50);
+  if(keyPressed){
+    if(q==true){
+      p1y=p1y-5;}
+      
+    if(a==true){
+      p1y=p1y+5;}
+      
+   if(p==true){
+        p2y=p2y-5;}
+        
+    if(l==true){
+          p2y=p2y+5;} }
+ 
+      if((p1y<0)||(p1y>450)||((p2y<0)||(p2y>450))){
+      p1y=p1y+0;
+      p2y=p2y+0; }
+      
+    //ellipse
+    ellipse(xpos,ypos,20,20);
+  xpos=xpos+speed*xdir*xchange;
+  ypos=ypos+speed*ydir*ychange;
+  //text
+  fill(0,0,0);
+  textSize(20);
+  text(p1,50,20);
+  text(p2, 450,20);
+  //conditions
+  if((ypos<10)||(ypos>height-10)){
+    ydir=ydir*(-1);
+    xchange=random(0.7,1.3);
+  } else if((xpos<25)&&((ypos>p1y)&&(ypos<p1y+50))){
+      xdir=xdir*(-1);
+      ychange=random(0.7,1.3);
+    } else if((xpos>475)&&((ypos>p2y)&&(ypos<p2y+50))){xdir=xdir*(-1);
+      ychange=random(0.7,1.3);} else if((xpos<10)){
+        xpos=250;
+        ypos=250;
+        p2=p2+1;}else if(xpos>510){
+          xpos=250;
+        ypos=250;
+        p1=p1+1;}
+        
+   
+}
+
+    
+//boolean setup
+public void keyPressed(){
+    if(key=='q'||key=='Q') q=true;
+     if(key=='a'||key=='A') a=true;
+      if(key=='p'||key=='P') p=true;
+       if(key=='l'||key=='L') l=true;
+  }
+  
+ public void keyReleased(){
+   if(key=='q'||key=='Q') q=false;
+     if(key=='a'||key=='A') a=false;
+      if(key=='p'||key=='P') p=false;
+    if(key=='l'||key=='L') l=false;}

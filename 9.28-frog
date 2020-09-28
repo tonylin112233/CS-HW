@@ -1,0 +1,84 @@
+Please visit:
+https://www.openprocessing.org/user/240501#sketches
+
+CODE:
+int number=100;
+Car[] car=new Car[100];
+Frog myfrog;
+
+void setup(){
+  size(700,700);
+  for(int n=0; n<=number; n=n+1){
+    car[n]=new Car(0, 600-50*n,random(5,10),50,30,color(random(0,255),random(0,255),random(0,255)));
+  }
+  myfrog=new Frog(350,600,color(0,255,0));
+}
+
+void draw(){
+  background(255,255,255);
+  for(int n=0;10+n<=number; n=n+1){
+  car[n].display();
+  car[n].move();
+  }
+  
+  myfrog.display();
+  myfrog.move();
+
+}
+
+class Car{
+  float xpos;
+  float ypos;
+  float speed;
+  float carw;
+  float carh;
+  color cl;
+  
+  Car(float xp, float yp, float sp, float cwid, float chei, color c){
+ xpos=xp;
+ ypos=yp;
+ speed=sp;
+ carw=cwid;
+ carh=chei;
+ cl=c;
+}
+
+void display(){
+  rectMode(CENTER);
+  fill(cl);
+  rect(xpos,ypos,carw,carh);
+}
+
+void move(){
+  xpos=xpos+speed;
+  if(xpos>(width+carw/2)){
+    xpos=0;}
+}}
+
+
+class Frog{
+  float xpos;
+  float ypos;
+  float cl;
+
+
+Frog(float tempX, float tempY, color tempC){
+   xpos=tempX;
+   ypos=tempY;
+   cl=tempC;
+ }
+ 
+ void display(){
+   fill(cl);
+   rect(xpos,ypos,30,30,10);
+ }
+
+ void move(){
+   if(keyPressed){
+     if(keyCode==UP){
+       ypos=ypos-50;}else if(keyCode==DOWN){
+         ypos=ypos+50;}else if(keyCode==LEFT){
+           xpos=xpos-50;}else if(keyCode==RIGHT){
+             xpos+=50;}
+   }}}
+	

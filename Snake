@@ -1,0 +1,241 @@
+Segment[] head;
+
+boolean up=false;
+boolean down=false;
+boolean left=false;
+boolean right=false;
+int count=144;
+float x=0;
+float y=0;
+int active=2;
+float segLength;
+float tick =5;
+Apple apple;
+boolean eaten=true;
+PFont myFont;
+String scoreText;
+int score=1;
+
+
+
+void setup() {
+  size(600, 600);
+
+  myFont=createFont("Anonymous-48", 34);
+  textFont(myFont);
+
+  head=new Segment[count];
+  head[0]=new Segment(0, 0);
+
+  for (int i=1; i<count; i++) {
+    head[i]= new Segment(-10000, -10000);
+    //frameRate(10);
+  }
+
+  segLength=head[0].speed;
+  spawnHead();
+  apple = new Apple(segLength);
+}
+
+void draw() {
+  background(255, 255, 255);
+
+  scoreText=""+score;
+  text(scoreText,0,50);
+
+  for (int i=0; i< active; i++) {
+    head[i].display();
+  }
+
+  appleUpdate();
+  eat();
+
+
+  if (frameCount% tick==0) {
+    //Make the snake's head move;
+    if (down==true) {
+      head[0].ypos+=segLength;
+    } else if (up==true) {
+      head[0].ypos-=segLength;
+    } else if (right==true) {
+      head[0].xpos+=segLength;
+    } else if (left==true) {
+      head[0].xpos-=segLength;
+    }
+
+
+    if (head[0].xpos<0) {
+      head[0].xpos=width;
+    } else if (head[0].xpos>width) {
+      head[0].xpos=0;
+    } else if (head[0].ypos<0) {
+      head[0].ypos=height;
+    } else if (head[0].ypos>height) {
+      head[0].ypos=0;
+    }
+
+
+    moveBody();
+    checkCollision();
+  }
+}
+
+void keyPressed() {
+  if (keyCode==DOWN&&!up) {
+    down=true;
+    up=false;
+    left=false;
+    right=false;
+  }
+
+  if (keyCode==UP&&!down) {
+    down=false;
+    up=true;
+    left=false;
+    right=false;
+  }
+
+  if (keyCode==LEFT&!right) {
+    down=false;
+    up=false;
+    left=true;
+    right=false;
+  }
+
+  if (keyCode==RIGHT&&!left) {
+    down=false;
+    up=false;
+    left=false;
+    right=true;
+  }
+}
+
+/*
+void keyReleased() {
+ if (down==true) {
+ head[0].ypos+=head[0].speed;
+ down=false;
+ } else if (up==true) {
+ head[0].ypos-=head[0].speed;
+ up=false;
+ } else if (right==true) {
+ head[0].xpos+=head[0].speed;
+ right=false;
+ } else if (left==true) {
+ head[0].xpos-=head[0].speed;
+ left=false;
+ }
+ 
+ if (down==true) {
+ head[1].ypos+=head[0].speed;
+ down=false;
+ } else if (up==true) {
+ head[1].ypos-=head[0].speed;
+ up=false;
+ } else if (right==true) {
+ head[1].xpos+=head[0].speed;
+ right=false;
+ } else if (left==true) {
+ head[1].xpos-=head[0].speed;
+ left=false;
+ }
+ }
+ */
+
+void spawnHead() {
+  head[0].xpos=round(random(1, (width/segLength)-1))*segLength;
+  head[0].ypos=round(random(1, (width/segLength)-1))*segLength;
+}
+
+
+void moveBody() {
+  head[0].preXpos=head[0].xpos;
+  head[0].preYpos=head[0].ypos;
+  for (int i = 1; i<active; i++) {
+    head[i].preXpos=head[i].xpos;
+    head[i].preYpos=head[i].ypos;
+    head[i].xpos=head[i-1].preXpos;
+    head[i].ypos=head[i-1].preYpos;
+  }
+}
+
+void appleUpdate() {
+  if (eaten== false) {
+    apple.display();
+  }
+  if (eaten==true) {
+    apple.xpos=round(random(1, (width/segLength)-1))*segLength;
+    apple.ypos=round(random(1, (width/segLength)-1))*segLength;
+    eaten=false;
+  }
+}
+
+void eat() {
+  if (head[0].xpos==apple.xpos&&head[0].ypos==apple.ypos) {
+    eaten=true;
+    active+=1;
+    score+=1;
+  }
+}
+
+void checkCollision() {
+  for (int i=2; i<active; i++) {
+    if (head[0].xpos==head[i].xpos&& head[0].ypos==head[i].ypos) {
+      active=2;  
+      score=1;
+
+      for (int j= i; j<count; j++) {
+        head[j].xpos=-1000;
+        head[j].ypos=-1000;
+      }
+    }
+  }
+}
+
+
+class Segment {
+  float xpos;
+  float ypos;
+  float preXpos;
+  float preYpos;
+  color cAlive=color(random(200,255), random(200,255), random(200,255));
+  color cDead=color(0, 0, 0);
+  boolean alive = true;
+  float speed = 30;
+  float newXpos;
+  float newYpos;
+  
+  
+
+  Segment(float tempX, float tempY) {
+    xpos=tempX;
+    ypos=tempY;
+  }
+
+  void display() {
+    if (alive==true) {
+      fill(cAlive);
+    } else if (alive==false) {
+      fill(cDead);
+    }
+ellipse(xpos,ypos,speed, speed);
+  }
+  
+}
+
+
+class Apple {
+  float xpos;
+  float ypos;
+  float w;
+
+  Apple(float tempw ) {
+    w=tempw;
+  }
+
+  void display() {
+    fill(255, 0, 0);
+    ellipse(xpos, ypos, w, w);
+  }
+  
+}

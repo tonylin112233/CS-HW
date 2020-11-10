@@ -1,0 +1,30 @@
+
+void draw(){
+keydown();
+}
+
+
+void keydown(){
+
+  if(keyPressed){
+     if(key==''){
+     //movement
+     }else if(keyCode==''){
+     //movement
+     }
+     
+   }
+ }
+ 
+ 
+ -----
+ 
+ // for some reason, this runs at a lower rate than the if statement above
+ 
+ void keyPressed(){
+    if(key==''){
+     //movement
+     }else if(keyCode==''){
+     //movement
+     }
+   }

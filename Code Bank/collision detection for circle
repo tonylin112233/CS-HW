@@ -1,0 +1,11 @@
+void draw(){
+  detection();
+}
+
+void detection() {
+  for (int n=0, n<=number; n=n+1){
+    if (dist(x1, y1, x2, y2)< radius1+radius2){
+      //movement for collision
+      }
+    }
+  }

@@ -1,0 +1,81 @@
+//This is where I create a variable to hold my new object.
+Object_Name object_instance;
+
+void setup(){
+  //THis is where I construct and initialize my object
+  object_instance = new Object_Name(//set properties here);
+
+}
+
+
+void draw(){
+  //This is where I can interact with the object and use its methods.
+  object_instance.variable1=100;
+
+  object_instance.Method_Name();
+
+}
+
+
+
+class Object_NAME {
+  //this is where i will declare all of my variables
+   //that are properties of the object
+  //for example.
+  float var1;
+  boolean var2;
+ 
+  //this is where i build the constructer,
+  Object_NAME (float tempInput){
+  //This is where I use the temp values to set 
+  //the initial value of my parameters (var1, var2, etc...)
+  }
+
+  //This is where I define the method for my object.
+  void Method_Name(float tempINput){
+
+  }
+
+  float mMethod2_Name(flaot tempIput){
+  return(var_to_return);
+  }
+}
+
+----------------------
+
+Ball ball1;
+
+void setup(){
+  ball1=new Ball(100,100,20,color(0,0,255));
+}
+
+void draw(){
+  ball.display();
+}
+
+class Ball{
+  float xpos;
+  float ypos;
+  float size;
+  color c1;
+
+  Ball(float tempX, float tempY, tempSize, tempC){
+  xpos=tempX;
+  ypos=tempY;
+  size=tempSize;
+  c2=tempC;
+}
+  
+  void display(){
+  fill=(c1);
+  elli[se(xpos,ypos,size,size);
+  
+}
+
+
+
+
+
+
+keyboard /mouth/
+

@@ -1,0 +1,3 @@
+for (int n=0; n<=number; n=n+1) {
+    TempName[n]=new ClassName(input,input,input,input);
+  }
